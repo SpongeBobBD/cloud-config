@@ -1,6 +1,10 @@
 server:
   port: 8082
 
+spring:
+  application:
+    name: order-service
+
 eureka:
   client:
     register-with-eureka: true
@@ -20,4 +24,3 @@ resilience4j:
     instances:
       user-service:
         timeoutDuration: 2s
-
