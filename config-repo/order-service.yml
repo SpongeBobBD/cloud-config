@@ -4,6 +4,8 @@ server:
 spring:
   application:
     name: order-service
+  zipkin:
+    base-url: http://localhost:9411  # Zipkin 服务器地址
 
 eureka:
   client:
@@ -24,3 +26,14 @@ resilience4j:
     instances:
       user-service:
         timeoutDuration: 2s
+management:
+  tracing:
+    sampling:
+      probability: 1.0  # 100% 采样
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: "*"
