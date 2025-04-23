@@ -1,4 +1,8 @@
 spring:
+  security:
+    csrf:
+      enabled: false
+
   application:
     name: gateway
   zipkin:
