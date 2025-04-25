@@ -5,11 +5,14 @@ spring:
 
   application:
     name: gateway
+
   zipkin:
     base-url: http://localhost:9411  # Zipkin 服务器地址
+
   main:
     web-application-type: reactive  # 确保使用反应式 Web 类型
     allow-bean-definition-overriding: true  # 允许覆盖 Bean 定义
+
   cloud:
     gateway:
       routes:
@@ -25,6 +28,7 @@ spring:
           uri: lb://auth-service
           predicates:
             - Path=/auth/**
+
 server:
   port: 8090
 
@@ -50,6 +54,7 @@ management:
 logging:
   level:
     org.springframework.security: DEBUG  # Spring Security 详细日志
+    org.springframework.cloud.gateway: DEBUG  # Spring Cloud Gateway 详细日志
   pattern:
     level: "%5p [${spring.application.name:},traceId=%X{traceId},spanId=%X{spanId}]"
 
