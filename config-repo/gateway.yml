@@ -48,5 +48,8 @@ management:
         include: "*"
 
 logging:
+  level:
+    org.springframework.security: DEBUG  # Spring Security 详细日志
   pattern:
     level: "%5p [${spring.application.name:},traceId=%X{traceId},spanId=%X{spanId}]"
+
