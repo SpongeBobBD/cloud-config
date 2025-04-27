@@ -4,6 +4,10 @@ spring:
   security:
     csrf:
       enabled: false  # 禁用 CSRF 保护
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: https://your-auth-server/.well-known/jwks.json
 
   application:
     name: gateway
