@@ -1,7 +1,7 @@
 spring:
   security:
     csrf:
-      enabled: false
+      enabled: false  # 禁用 CSRF 保护
 
   application:
     name: gateway
@@ -58,3 +58,8 @@ logging:
   pattern:
     level: "%5p [${spring.application.name:},traceId=%X{traceId},spanId=%X{spanId}]"
 
+  # 禁用 Spring Security 配置 (更彻底的禁用)
+  security:
+    filter-dispatcher-types: async, error, request
+    filter-order: -100
+    enable-csrf: false
