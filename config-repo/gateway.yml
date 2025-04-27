@@ -1,4 +1,6 @@
 spring:
+  profiles:
+    active: dev
   security:
     csrf:
       enabled: false  # 禁用 CSRF 保护
@@ -55,6 +57,7 @@ logging:
   level:
     org.springframework.security: DEBUG  # Spring Security 详细日志
     org.springframework.cloud.gateway: DEBUG  # Spring Cloud Gateway 详细日志
+    org.springframework: DEBUG
   pattern:
     level: "%5p [${spring.application.name:},traceId=%X{traceId},spanId=%X{spanId}]"
 
